@@ -9,7 +9,7 @@ const MainLayout = () => {
     <div style={{paddingTop: "70px"}}>
       <Grid container alignItems="center" justifyContent="center">
           {arr.map(()=>
-          <Grid item xs={3}>
+          <Grid item xs={6} sm={4} md={3}>
             <img src={IMG} alt='pic' style={{width:"95%", padding:"5px"}}/>
           </Grid>)}
       </Grid>
