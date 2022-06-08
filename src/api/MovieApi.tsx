@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import instance from "./axios";
 
@@ -15,6 +16,8 @@ type Movie = {
   backdrop_path: string;
 };
 
+const base_url = "https://image.tmdb.org/t/p/original";
+
 
 export const MovieApi = ({ fetchUrl }: Props) => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -30,7 +33,19 @@ export const MovieApi = ({ fetchUrl }: Props) => {
 
   console.log(movies);
 
-  return(
-      <div className="MovieApi" /> 
-  );
+  return (
+    <div style={{ paddingTop: "70px" }}>
+      <Grid container alignItems="center" justifyContent="center">        {movies.map((movie, i) => (
+        <Grid item xs={6} sm={4} md={3}>
+          <img
+            key={movie.id}
+            src={`${base_url}${movie.backdrop_path
+              }`}
+            alt={movie.name}
+            style={{ width: "95%", padding: "5px" }}
+          />
+        </Grid>
+      ))}
+      </Grid>
+    </div>);
 };
