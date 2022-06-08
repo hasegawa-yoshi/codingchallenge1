@@ -10,6 +10,7 @@ function App() {
     <div className="App">
       <HeaderComponents />
       <MovieApi fetchUrl={requests.feactMovies} />
+      <MovieApi fetchUrl={requests.searchMovies} />
     </div>
   );
 }
