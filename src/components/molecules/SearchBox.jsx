@@ -1,15 +1,26 @@
 import { Grid } from '@mui/material'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import PrimaryButton from '../atoms/PrimaryButton'
 import PrimaryTextField from '../atoms/PrimaryTextField'
 
 const SearchBox = () => {
+  const dispatch = useDispatch();
+
   const [text, setText] = useState('')
 
   const onChangeText = (e) => setText(e.target.value)
 
   const onClickSearchButton = () => {
-    alert(text);
+    if (!text) return;
+
+    dispatch({
+      type: "SEARCH_TEXT",
+      payload: {
+        text,
+      }
+    });
+    setText("");
   }
 
   return (
@@ -20,7 +31,7 @@ const SearchBox = () => {
       </Grid>
       <Grid item xs={0.5}></Grid>
       <Grid item xs={1.5}>
-        <PrimaryButton onClick={onClickSearchButton}  style={{ backgroundColor: "white" }} />
+        <PrimaryButton onClick={onClickSearchButton} style={{ backgroundColor: "white" }} />
       </Grid>
     </Grid>
   )

@@ -1,7 +1,8 @@
 import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import instance from "./axios";
-
+/*
 type Props = {
   fetchUrl: string;
   isLargeRow?: boolean;
@@ -15,12 +16,12 @@ type Movie = {
   poster_path: string;
   backdrop_path: string;
 };
-
+*/
 const base_url = "https://image.tmdb.org/t/p/original";
 
 
-export const MovieApi = ({ fetchUrl }: Props) => {
-  const [movies, setMovies] = useState<Movie[]>([]);
+export const MovieApi = ({ fetchUrl }/*: Props*/) => {
+  const [movies, setMovies] = useState/*<Movie[]>*/([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -33,8 +34,12 @@ export const MovieApi = ({ fetchUrl }: Props) => {
 
   console.log(movies);
 
+  const selector = useSelector((state)=>state)
+
+
   return (
     <div style={{ paddingTop: "70px" }}>
+      <h2>{selector.text}の検索結果</h2>
       <Grid container alignItems="center" justifyContent="center">        {movies.map((movie, i) => (
         <Grid item xs={6} sm={4} md={3}>
           <img
