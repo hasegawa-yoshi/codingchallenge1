@@ -1,28 +1,22 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { MovieApi } from './api/MovieApi';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import "./App.css";
 
-import HeaderComponents from './components/organisms/HeaderComponents';
+import Home from "./components/pages/Home";
+import MovieIntro from "./components/pages/MovieIntro";
 
 function App() {
-  const searchText = useSelector((state)=>state.SearchTextReducer)
-
-  console.log(searchText)
-
-  const API_KEY = "4f572de575a44a43f43968b4c4d31e12"; 
-
-
-   const requests ={
-    feactMovies:`/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&page=1`,
-    searchMovies:`/search/movie?api_key=${API_KEY}&query=${searchText.text}&page=1`,
-}
-
   return (
-    <div className="App">
-      <HeaderComponents />
-      <MovieApi fetchUrl={requests.searchMovies} />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/movieintro">
+          <MovieIntro />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

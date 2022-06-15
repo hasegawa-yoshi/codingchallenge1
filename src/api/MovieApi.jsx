@@ -19,9 +19,8 @@ type Movie = {
 */
 const base_url = "https://image.tmdb.org/t/p/original";
 
-
-export const MovieApi = ({ fetchUrl }/*: Props*/) => {
-  const [movies, setMovies] = useState/*<Movie[]>*/([]);
+export const MovieApi = ({ fetchUrl } /*: Props*/) => {
+  const [movies, setMovies] = useState(/*<Movie[]>*/ []);
 
   useEffect(() => {
     async function fetchData() {
@@ -34,40 +33,41 @@ export const MovieApi = ({ fetchUrl }/*: Props*/) => {
 
   console.log(movies);
 
-  const searchTextSelector = useSelector((state)=>state.SearchTextReducer);
+  const searchTextSelector = useSelector((state) => state.SearchTextReducer);
 
-  const movieIdSelector = useSelector((state)=>state.MovieIdReducer);
+  const movieIdSelector = useSelector((state) => state.MovieIdReducer);
 
   const dispatch = useDispatch();
 
-  const onClickMovieImg = (x) =>{
+  const onClickMovieImg = (x) => {
     dispatch({
       type: "MOVIE_ID",
       payload: {
-        id: movies[x].id
-      }
-    })
-  }
+        id: movies[x].id,
+      },
+    });
+  };
 
-  console.log(movieIdSelector.id)
-
+  console.log(movieIdSelector.id);
 
   return (
     <div style={{ paddingTop: "70px" }}>
       <h2>{searchTextSelector.text}の検索結果</h2>
       <h4>画像クリックで映画詳細を表示</h4>
-      <Grid container alignItems="center" justifyContent="center">        {movies.map((movie, i) => (
-        <Grid item xs={6} sm={4} md={3}>
-          <img
-            key={movie.id}
-            src={`${base_url}${movie.backdrop_path
-              }`}
-            alt={movie.name}
-            style={{ width: "95%", padding: "5px",cursor: "pointer" }}
-            onClick={()=>onClickMovieImg(i)}
-          />
-        </Grid>
-      ))}
+      <Grid container alignItems="center" justifyContent="center">
+        {" "}
+        {movies.map((movie, i) => (
+          <Grid item xs={6} sm={4} md={3}>
+            <img
+              key={movie.id}
+              src={`${base_url}${movie.backdrop_path}`}
+              alt={movie.name}
+              style={{ width: "95%", padding: "5px", cursor: "pointer" }}
+              onClick={() => onClickMovieImg(i)}
+            />
+          </Grid>
+        ))}
       </Grid>
-    </div>);
+    </div>
+  );
 };
