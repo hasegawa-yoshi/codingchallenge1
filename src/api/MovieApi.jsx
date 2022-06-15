@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import instance from "./axios";
+import { useHistory } from "react-router-dom";
 /*
 type Props = {
   fetchUrl: string;
@@ -35,9 +36,9 @@ export const MovieApi = ({ fetchUrl } /*: Props*/) => {
 
   const searchTextSelector = useSelector((state) => state.SearchTextReducer);
 
-  const movieIdSelector = useSelector((state) => state.MovieIdReducer);
-
   const dispatch = useDispatch();
+
+  const history = useHistory();
 
   const onClickMovieImg = (x) => {
     dispatch({
@@ -46,9 +47,8 @@ export const MovieApi = ({ fetchUrl } /*: Props*/) => {
         id: movies[x].id,
       },
     });
+    history.push("/movieintro");
   };
-
-  console.log(movieIdSelector.id);
 
   return (
     <div style={{ paddingTop: "70px" }}>
