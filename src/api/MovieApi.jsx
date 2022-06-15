@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import instance from "./axios";
 /*
 type Props = {
@@ -34,12 +34,28 @@ export const MovieApi = ({ fetchUrl }/*: Props*/) => {
 
   console.log(movies);
 
-  const selector = useSelector((state)=>state)
+  const searchTextSelector = useSelector((state)=>state.SearchTextReducer);
+
+  const movieIdSelector = useSelector((state)=>state.MovieIdReducer);
+
+  const dispatch = useDispatch();
+
+  const onClickMovieImg = (x) =>{
+    dispatch({
+      type: "MOVIE_ID",
+      payload: {
+        id: movies[x].id
+      }
+    })
+  }
+
+  console.log(movieIdSelector.id)
 
 
   return (
     <div style={{ paddingTop: "70px" }}>
-      <h2>{selector.text}の検索結果</h2>
+      <h2>{searchTextSelector.text}の検索結果</h2>
+      <h4>画像クリックで映画詳細を表示</h4>
       <Grid container alignItems="center" justifyContent="center">        {movies.map((movie, i) => (
         <Grid item xs={6} sm={4} md={3}>
           <img
@@ -47,7 +63,8 @@ export const MovieApi = ({ fetchUrl }/*: Props*/) => {
             src={`${base_url}${movie.backdrop_path
               }`}
             alt={movie.name}
-            style={{ width: "95%", padding: "5px" }}
+            style={{ width: "95%", padding: "5px",cursor: "pointer" }}
+            onClick={()=>onClickMovieImg(i)}
           />
         </Grid>
       ))}

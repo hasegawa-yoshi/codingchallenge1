@@ -6,7 +6,7 @@ import './App.css';
 import HeaderComponents from './components/organisms/HeaderComponents';
 
 function App() {
-  const searchText = useSelector((state)=>state)
+  const searchText = useSelector((state)=>state.SearchTextReducer)
 
   console.log(searchText)
 

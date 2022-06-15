@@ -7,3 +7,13 @@ export const searchTextAction = (textState) => {
     }
   }
 }
+
+export const MOVIE_ID = "MOVIE_ID";
+export const movieIdAction = (idState) => {
+  return {
+    type: "MOVIE_ID",
+    payload: {
+      id: idState.id,
+    }
+  }
+}

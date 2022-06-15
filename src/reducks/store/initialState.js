@@ -1,5 +1,8 @@
-const initialState = {
+export const SearchTextInitialState = {
   text: ""
 }
 
-export default initialState
+export const movieIdInitialState = {
+  id: 0
+}
+
