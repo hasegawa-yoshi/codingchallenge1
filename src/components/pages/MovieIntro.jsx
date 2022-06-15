@@ -23,7 +23,17 @@ export const MovieIntro = () => {
 
   console.log(movie);
 
-  return <div>MovieIntro</div>;
+  return (
+    <div>
+      <img
+        src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+        alt={movie.name}
+        style={{ width: "95%", padding: "5px", cursor: "pointer" }}
+      />
+      <h1>{movie.original_title}</h1>
+      <p>{movie.overview}</p>
+    </div>
+  );
 };
 
 export default MovieIntro;
