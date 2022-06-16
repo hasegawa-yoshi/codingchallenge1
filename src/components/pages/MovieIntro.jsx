@@ -24,7 +24,7 @@ export const MovieIntro = () => {
   console.log(movie);
 
   return (
-    <div>
+    <div style={{ margin: 0, textAlign: "center" }}>
       <img
         src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
         alt={movie.name}
