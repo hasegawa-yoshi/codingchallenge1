@@ -1,15 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
+import FavoriteMovie from "./components/pages/FavoriteMovie";
 
 import Home from "./components/pages/Home";
 import MovieIntro from "./components/pages/MovieIntro";
 import SearchMovie from "./components/pages/SearchMovie";
 
 function App() {
-  const searchText = useSelector((state) => state.SearchTextReducer);
-
   return (
     <BrowserRouter>
       <Switch>
@@ -21,6 +19,9 @@ function App() {
         </Route>
         <Route path="/movieintro">
           <MovieIntro />
+        </Route>
+        <Route path="/favorites">
+          <FavoriteMovie />
         </Route>
       </Switch>
     </BrowserRouter>

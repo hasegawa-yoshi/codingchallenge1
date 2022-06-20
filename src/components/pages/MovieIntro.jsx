@@ -6,7 +6,7 @@ import instance from "../../api/axios";
 export const MovieIntro = () => {
   const movieIdSelector = useSelector((state) => state.MovieIdReducer);
 
-  const movieintroUrl = `/movie/${movieIdSelector.id}?api_key=${API_KEY}`;
+  const movieintroUrl = `/movie/${movieIdSelector.id}?api_key=${API_KEY}&language=ja`;
 
   console.log(movieIdSelector.id);
 
@@ -28,7 +28,7 @@ export const MovieIntro = () => {
       <img
         src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
         alt={movie.name}
-        style={{ width: "95%", padding: "5px", cursor: "pointer" }}
+        style={{ width: "60%", padding: "5px", cursor: "pointer" }}
       />
       <h1>{movie.original_title}</h1>
       <p>{movie.overview}</p>

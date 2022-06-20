@@ -1,4 +1,5 @@
 import { Grid } from "@mui/material";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import instance from "./axios";
@@ -54,6 +55,7 @@ export const MovieApi = ({ fetchUrl } /*: Props*/) => {
     <div style={{ paddingTop: "70px" }}>
       <h2>{searchTextSelector.text}の検索結果</h2>
       <h4>画像クリックで映画詳細を表示</h4>
+      <Link to="/favorites">お気に入り</Link>
       <Grid container alignItems="center" justifyContent="center">
         {" "}
         {movies.map((movie, i) => (
