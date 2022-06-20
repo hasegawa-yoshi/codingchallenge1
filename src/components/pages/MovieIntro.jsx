@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { API_KEY } from "../../api/Apikey";
@@ -30,6 +31,13 @@ export const MovieIntro = () => {
         alt={movie.name}
         style={{ width: "60%", padding: "5px", cursor: "pointer" }}
       />
+      <br />
+      <Button variant="outlined" sx={"margin:5px;color:blue;"}>
+        お気に入りに追加
+      </Button>
+      <Button variant="outlined" sx={"margin:5px;color:red;"}>
+        お気に入りから削除
+      </Button>
       <h1>{movie.original_title}</h1>
       <p>{movie.overview}</p>
     </div>
