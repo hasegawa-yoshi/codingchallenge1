@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { API_KEY } from "../../api/Apikey";
 import { MovieApi } from "../../api/MovieApi";
+import FooterComponents from "../organisms/FooterComponents";
 import HeaderComponents from "../organisms/HeaderComponents";
 
 const SearchMovie = () => {
@@ -18,6 +19,7 @@ const SearchMovie = () => {
     <div className="App">
       <HeaderComponents />
       <MovieApi fetchUrl={requests.searchMovies} />
+      <FooterComponents />
     </div>
   );
 };

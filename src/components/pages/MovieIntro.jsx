@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { API_KEY } from "../../api/Apikey";
 import instance from "../../api/axios";
+import FooterComponents from "../organisms/FooterComponents";
 
 export const MovieIntro = () => {
   const movieIdSelector = useSelector((state) => state.MovieIdReducer);
@@ -40,6 +41,7 @@ export const MovieIntro = () => {
       </Button>
       <h1>{movie.original_title}</h1>
       <p>{movie.overview}</p>
+      <FooterComponents />
     </div>
   );
 };
