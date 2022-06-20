@@ -10,6 +10,11 @@ export const favoriteIdInitialState = {
   favorites: [
     {
       id: 0,
+      register: false,
+    },
+    {
+      id: 0,
+      register: true,
     },
   ],
 };

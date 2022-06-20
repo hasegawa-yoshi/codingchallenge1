@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_KEY } from "../../api/Apikey";
 import instance from "../../api/axios";
 import FooterComponents from "../organisms/FooterComponents";
@@ -23,6 +23,21 @@ export const MovieIntro = () => {
     fetchData();
   }, [movieintroUrl]);
 
+  const dispatch = useDispatch();
+
+  const onClickFavoriteButton = () => {
+    const favoriteid = movie.id;
+    const favoriteregister = true;
+    dispatch({
+      type: "FAVORITE_MOVIE_ADD",
+      payload: {
+        id: favoriteid,
+        register: favoriteregister,
+      },
+    });
+    alert(1);
+  };
+
   console.log(movie);
 
   return (
@@ -33,7 +48,11 @@ export const MovieIntro = () => {
         style={{ width: "60%", padding: "5px", cursor: "pointer" }}
       />
       <br />
-      <Button variant="outlined" sx={"margin:5px;color:blue;"}>
+      <Button
+        variant="outlined"
+        sx={"margin:5px;color:blue;"}
+        onClick={onClickFavoriteButton}
+      >
         お気に入りに追加
       </Button>
       <Button variant="outlined" sx={"margin:5px;color:red;"}>
