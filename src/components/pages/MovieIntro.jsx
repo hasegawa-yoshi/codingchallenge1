@@ -26,7 +26,7 @@ export const MovieIntro = () => {
   const dispatch = useDispatch();
 
   const onClickFavoriteButton = () => {
-    const favoriteid = movie.id;
+    const favoriteid = movie;
     const favoriteregister = true;
     dispatch({
       type: "FAVORITE_MOVIE_ADD",
@@ -35,7 +35,7 @@ export const MovieIntro = () => {
         register: favoriteregister,
       },
     });
-    alert(1);
+    alert(favoriteid);
   };
 
   console.log(movie);

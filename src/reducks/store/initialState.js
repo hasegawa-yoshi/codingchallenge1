@@ -14,7 +14,7 @@ export const favoriteIdInitialState = {
     },
     {
       id: 0,
-      register: true,
+      register: false,
     },
   ],
 };
