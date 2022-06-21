@@ -56,9 +56,9 @@ const FavoriteMovie = () => {
           .map((favorite: any, index: any) => (
             <Grid item xs={6} sm={4} md={3}>
               <img
-                key={favorite.id.id}
-                src={`${base_url}${favorite.id.backdrop_path}`}
-                alt={favorite.id.name}
+                key={favorite.movieinfo.id}
+                src={`${base_url}${favorite.movieinfo.backdrop_path}`}
+                alt={favorite.movieinfo.name}
                 style={{ width: "95%", padding: "5px", cursor: "pointer" }}
               />
             </Grid>

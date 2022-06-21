@@ -9,11 +9,11 @@ export const movieIdInitialState = {
 export const favoriteIdInitialState = {
   favorites: [
     {
-      id: 0,
+      movieinfo: 0,
       register: false,
     },
     {
-      id: 0,
+      movieinfo: 0,
       register: false,
     },
   ],

@@ -23,7 +23,7 @@ export const favorateMovieAddAction = (favoriteState) => {
   return {
     type: "FAVORITE_MOVIE_ADD",
     payload: {
-      id: favoriteState.id,
+      movieinfo: favoriteState.id,
       register: favoriteState.register,
     },
   };

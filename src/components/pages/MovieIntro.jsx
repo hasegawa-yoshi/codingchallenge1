@@ -31,7 +31,7 @@ export const MovieIntro = () => {
     dispatch({
       type: "FAVORITE_MOVIE_ADD",
       payload: {
-        id: favoriteid,
+        movieinfo: favoriteid,
         register: favoriteregister,
       },
     });
