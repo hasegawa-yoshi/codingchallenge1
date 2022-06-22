@@ -5,12 +5,14 @@ import { API_KEY } from "../../api/Apikey";
 import instance from "../../api/axios";
 import FooterComponents from "../organisms/FooterComponents";
 
-export const MovieIntro = () => {
-  const movieIdSelector = useSelector((state) => state.MovieIdReducer);
+export const FavoriteMovieIntro = () => {
+  const favoriteMovieIdSelector = useSelector(
+    (state) => state.FavoriteMovieIdReducer
+  );
 
-  const movieintroUrl = `/movie/${movieIdSelector.id}?api_key=${API_KEY}&language=ja`;
+  const movieintroUrl = `/movie/${favoriteMovieIdSelector.favoriteid}?api_key=${API_KEY}&language=ja`;
 
-  console.log(movieIdSelector.id);
+  console.log(favoriteMovieIdSelector.favoriteid);
 
   const [movie, setMovie] = useState([]);
 
@@ -65,4 +67,4 @@ export const MovieIntro = () => {
   );
 };
 
-export default MovieIntro;
+export default FavoriteMovieIntro;

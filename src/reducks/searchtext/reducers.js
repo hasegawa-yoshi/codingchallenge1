@@ -1,6 +1,7 @@
 import * as Actions from "./actions";
 import {
   favoriteIdInitialState,
+  favoriteMovieIdInitialState,
   movieIdInitialState,
   SearchTextInitialState,
 } from "../store/initialState";
@@ -44,8 +45,24 @@ export const FavoriteMovieReducer = (
   }
 };
 
+export const FavoriteMovieIdReducer = (
+  state = favoriteMovieIdInitialState,
+  action
+) => {
+  switch (action.type) {
+    case Actions.FAVORITE_MOVIE_ID:
+      return {
+        ...state,
+        ...action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
 export const rootReducer = combineReducers({
   SearchTextReducer,
   MovieIdReducer,
   FavoriteMovieReducer,
+  FavoriteMovieIdReducer,
 });

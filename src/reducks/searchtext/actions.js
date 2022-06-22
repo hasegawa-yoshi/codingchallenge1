@@ -28,3 +28,13 @@ export const favorateMovieAddAction = (favoriteState) => {
     },
   };
 };
+
+export const FAVORITE_MOVIE_ID = "FAVORITE_MOVIE_ID";
+export const favoriteMovieIdAction = (idState) => {
+  return {
+    type: "FAVORITE_MOVIE_ID",
+    payload: {
+      favoriteid: idState.id,
+    },
+  };
+};

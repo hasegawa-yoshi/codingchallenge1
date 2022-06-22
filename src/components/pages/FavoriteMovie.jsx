@@ -1,12 +1,13 @@
 import { Grid } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import FooterComponents from "../organisms/FooterComponents";
 
 const base_url = "https://image.tmdb.org/t/p/original";
 
 const FavoriteMovie = () => {
   const favoriteMovieSelector = useSelector(
-    (state: any) => state.FavoriteMovieReducer.favorites
+    (state) => state.FavoriteMovieReducer.favorites
   );
   /*
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -41,6 +42,23 @@ const FavoriteMovie = () => {
   */
 
   console.log(favoriteMovieSelector);
+  console.log(favoriteMovieSelector[2].movieinfo.id);
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const onClickMovieImg = (x) => {
+    dispatch({
+      type: "FAVORITE_MOVIE_ID",
+      payload: {
+        favoriteid: favoriteMovieSelector.filter(
+          (favorite) => favorite.register === true
+        )[x].movieinfo.id,
+      },
+    });
+    history.push("/favoritemovieintro");
+  };
+
   /*
   console.log(favoritesURL);
   console.log(movies);
@@ -52,14 +70,15 @@ const FavoriteMovie = () => {
       <h1>お気に入りリスト</h1>
       <Grid container alignItems="center" justifyContent="center">
         {favoriteMovieSelector
-          .filter((favorite: any) => favorite.register === true)
-          .map((favorite: any, index: any) => (
+          .filter((favorite) => favorite.register === true)
+          .map((favorite, index) => (
             <Grid item xs={6} sm={4} md={3}>
               <img
                 key={favorite.movieinfo.id}
                 src={`${base_url}${favorite.movieinfo.backdrop_path}`}
                 alt={favorite.movieinfo.name}
                 style={{ width: "95%", padding: "5px", cursor: "pointer" }}
+                onClick={() => onClickMovieImg(index)}
               />
             </Grid>
           ))}

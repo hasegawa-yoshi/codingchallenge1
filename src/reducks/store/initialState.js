@@ -18,3 +18,7 @@ export const favoriteIdInitialState = {
     },
   ],
 };
+
+export const favoriteMovieIdInitialState = {
+  favoriteid: 0,
+};
