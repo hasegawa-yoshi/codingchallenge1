@@ -9,6 +9,12 @@ const FavoriteMovie = () => {
   const favoriteMovieSelector = useSelector(
     (state) => state.FavoriteMovieReducer.favorites
   );
+  const favoriteMovieSelector2 = favoriteMovieSelector.reduce((a, v) => {
+    if (!a.some((e) => e.movieinfo.id === v.movieinfo.id)) {
+      a.push(v);
+    }
+    return a;
+  }, []);
   /*
   const [movies, setMovies] = useState<Movie[]>([]);
 
@@ -43,6 +49,7 @@ const FavoriteMovie = () => {
 
   console.log(favoriteMovieSelector);
   console.log(favoriteMovieSelector[2].movieinfo.id);
+  console.log(favoriteMovieSelector2);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -51,7 +58,7 @@ const FavoriteMovie = () => {
     dispatch({
       type: "FAVORITE_MOVIE_ID",
       payload: {
-        favoriteid: favoriteMovieSelector.filter(
+        favoriteid: favoriteMovieSelector2.filter(
           (favorite) => favorite.register === true
         )[x].movieinfo.id,
       },
@@ -68,8 +75,9 @@ const FavoriteMovie = () => {
   return (
     <div style={{ textAlign: "center", margin: 0 }}>
       <h1>お気に入りリスト</h1>
+      <h4>画像クリックで映画詳細を表示</h4>
       <Grid container alignItems="center" justifyContent="center">
-        {favoriteMovieSelector
+        {favoriteMovieSelector2
           .filter((favorite) => favorite.register === true)
           .map((favorite, index) => (
             <Grid item xs={6} sm={4} md={3}>
