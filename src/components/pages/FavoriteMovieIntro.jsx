@@ -65,14 +65,14 @@ export const FavoriteMovieIntro = () => {
       <br />
       <Button
         variant="outlined"
-        sx={"margin:5px;color:blue;"}
+        style={{ margin: "5px", color: "blue" }}
         onClick={onClickFavoriteButton}
       >
         お気に入りに追加
       </Button>
       <Button
         variant="outlined"
-        sx={"margin:5px;color:red;"}
+        style={{ margin: "5px", color: "red" }}
         onClick={onClickFavoriteDeleteButton}
       >
         お気に入りから削除

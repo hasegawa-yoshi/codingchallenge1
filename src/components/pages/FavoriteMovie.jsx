@@ -84,7 +84,7 @@ const FavoriteMovie = () => {
         {favoriteMovieSelector2
           .filter((favorite) => favorite.register === true)
           .map((favorite, index) => (
-            <Grid item xs={6} sm={4} md={3}>
+            <Grid item xs={6} sm={4} md={3} key={favorite.movieinfo.id}>
               <img
                 key={favorite.movieinfo.id}
                 src={`${base_url}${favorite.movieinfo.backdrop_path}`}

@@ -57,7 +57,7 @@ export const MovieApi = ({ fetchUrl } /*: Props*/) => {
       <Grid container alignItems="center" justifyContent="center">
         {" "}
         {movies.map((movie, i) => (
-          <Grid item xs={6} sm={4} md={3}>
+          <Grid item xs={6} sm={4} md={3} key={movie.id}>
             <img
               key={movie.id}
               src={`${base_url}${movie.backdrop_path}`}
