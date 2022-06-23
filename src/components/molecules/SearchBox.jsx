@@ -38,18 +38,11 @@ const SearchBox = () => {
     >
       <Grid item xs={1}></Grid>
       <Grid item xs={7}>
-        <PrimaryTextField
-          value={text}
-          onChange={onChangeText}
-          style={{ color: "white" }}
-        />
+        <PrimaryTextField value={text} onChange={onChangeText} />
       </Grid>
       <Grid item xs={0.5}></Grid>
       <Grid item xs={1.5}>
-        <PrimaryButton
-          onClick={onClickSearchButton}
-          style={{ backgroundColor: "white" }}
-        />
+        <PrimaryButton onClick={onClickSearchButton} />
       </Grid>
     </Grid>
   );
