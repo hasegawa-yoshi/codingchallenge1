@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import FooterComponents from "../organisms/FooterComponents";
+import IMG from "../../gazonashi.jpeg";
 
 const base_url = "https://image.tmdb.org/t/p/original";
 
@@ -87,7 +88,11 @@ const FavoriteMovie = () => {
             <Grid item xs={6} sm={4} md={3} key={favorite.movieinfo.id}>
               <img
                 key={favorite.movieinfo.id}
-                src={`${base_url}${favorite.movieinfo.backdrop_path}`}
+                src={
+                  favorite.movieinfo.backdrop_path === null
+                    ? IMG
+                    : `${base_url}${favorite.movieinfo.backdrop_path}`
+                }
                 alt={favorite.movieinfo.name}
                 style={{ width: "95%", padding: "5px", cursor: "pointer" }}
                 onClick={() => onClickMovieImg(index)}

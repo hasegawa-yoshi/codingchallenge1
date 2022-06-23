@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { API_KEY } from "../../api/Apikey";
 import instance from "../../api/axios";
 import FooterComponents from "../organisms/FooterComponents";
+import IMG from "../../gazonashi.jpeg";
 
 export const FavoriteMovieIntro = () => {
   const favoriteMovieIdSelector = useSelector(
@@ -58,7 +59,11 @@ export const FavoriteMovieIntro = () => {
   return (
     <div style={{ margin: 0, textAlign: "center" }}>
       <img
-        src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+        src={
+          movie.backdrop_path === null
+            ? IMG
+            : `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
+        }
         alt={movie.name}
         style={{ width: "60%", padding: "5px", cursor: "pointer" }}
       />

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import instance from "./axios";
 import { useHistory } from "react-router-dom";
+import IMG from "../gazonashi.jpeg";
+
 /*
 type Props = {
   fetchUrl: string;
@@ -60,7 +62,11 @@ export const MovieApi = ({ fetchUrl } /*: Props*/) => {
           <Grid item xs={6} sm={4} md={3} key={movie.id}>
             <img
               key={movie.id}
-              src={`${base_url}${movie.backdrop_path}`}
+              src={
+                movie.backdrop_path === null
+                  ? IMG
+                  : `${base_url}${movie.backdrop_path}`
+              }
               alt={movie.name}
               style={{ width: "95%", padding: "5px", cursor: "pointer" }}
               onClick={() => onClickMovieImg(i)}
