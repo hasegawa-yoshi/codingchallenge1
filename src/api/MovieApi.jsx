@@ -47,7 +47,7 @@ export const MovieApi = ({ fetchUrl } /*: Props*/) => {
         id: movies[x].id,
       },
     });
-    history.push("/movieintro");
+    history.push({ pathname: "/movieintro", search: movies[x].original_title });
   };
 
   return (

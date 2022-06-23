@@ -15,7 +15,7 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/search=">
+        <Route path="/search">
           <SearchMovie />
         </Route>
         <Route path="/movieintro">

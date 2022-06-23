@@ -25,7 +25,7 @@ const SearchBox = () => {
       },
     });
     setText("");
-    history.push("/search=");
+    history.push({ pathname: "/search", search: text });
   };
 
   return (

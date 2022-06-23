@@ -62,7 +62,12 @@ const FavoriteMovie = () => {
         )[x].movieinfo.id,
       },
     });
-    history.push("/favoritemovieintro");
+    history.push({
+      pathname: "/favoritemovieintro",
+      search: favoriteMovieSelector2.filter(
+        (favorite) => favorite.register === true
+      )[x].movieinfo.original_title,
+    });
   };
 
   /*
