@@ -2,6 +2,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## 使い方
+
+GitHub から clone したら yarn install、yarn start でアプリを起動できます。
+
+好きなワードで映画を検索して結果を２０件表示します。
+映画の画像をクリックすると映画の詳細を見ることができます。
+さらに詳細の画面からお気に入りに追加ボタンを押すことでお気に入り登録ができます。お気に入り登録した後フッターのお気に入りのリンクを押すと登録された映画が表示されます。
+お気に入り画面でも映画をクリックすると詳細を見ることができます。
+詳細画面のお気に入りから削除ボタンを押すことでその映画はお気に入りリストから外れます。
+
+！注意
+お気に入りに追加ボタンは何回押してもお気に入りリストには１件しか登録されません。
+
 ## Available Scripts
 
 In the project directory, you can run:
