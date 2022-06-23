@@ -40,6 +40,19 @@ export const FavoriteMovieIntro = () => {
     alert(`${favoriteid.original_title}をお気に入りに登録しました`);
   };
 
+  const onClickFavoriteDeleteButton = () => {
+    const favoriteid = movie;
+    const favoriteregister = true;
+    dispatch({
+      type: "FAVORITE_MOVIE_DELETE",
+      payload: {
+        movieinfo: favoriteid,
+        register: favoriteregister,
+      },
+    });
+    alert(`${favoriteid.original_title}をお気に入りから削除しました`);
+  };
+
   console.log(movie);
 
   return (
@@ -57,7 +70,11 @@ export const FavoriteMovieIntro = () => {
       >
         お気に入りに追加
       </Button>
-      <Button variant="outlined" sx={"margin:5px;color:red;"}>
+      <Button
+        variant="outlined"
+        sx={"margin:5px;color:red;"}
+        onClick={onClickFavoriteDeleteButton}
+      >
         お気に入りから削除
       </Button>
       <h1>{movie.original_title}</h1>

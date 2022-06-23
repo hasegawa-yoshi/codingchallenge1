@@ -40,6 +40,12 @@ export const FavoriteMovieReducer = (
       return {
         favorites: [...state.favorites, action.payload],
       };
+    case Actions.FAVORITE_MOVIE_DELETE:
+      return {
+        favorites: state.favorites.filter(
+          (favorite) => favorite.movieinfo.id !== action.payload.movieinfo.id
+        ),
+      };
     default:
       return state;
   }

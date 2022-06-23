@@ -29,6 +29,17 @@ export const favorateMovieAddAction = (favoriteState) => {
   };
 };
 
+export const FAVORITE_MOVIE_DELETE = "FAVORITE_MOVIE_DELETE";
+export const favorateMovieDeleteAction = (favoriteState) => {
+  return {
+    type: "FAVORITE_MOVIE_DELETE",
+    payload: {
+      movieinfo: favoriteState.id,
+      register: favoriteState.register,
+    },
+  };
+};
+
 export const FAVORITE_MOVIE_ID = "FAVORITE_MOVIE_ID";
 export const favoriteMovieIdAction = (idState) => {
   return {

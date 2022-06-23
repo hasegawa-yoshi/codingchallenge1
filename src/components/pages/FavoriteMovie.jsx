@@ -48,7 +48,6 @@ const FavoriteMovie = () => {
   */
 
   console.log(favoriteMovieSelector);
-  console.log(favoriteMovieSelector[2].movieinfo.id);
   console.log(favoriteMovieSelector2);
 
   const dispatch = useDispatch();
