@@ -11,7 +11,8 @@ const SearchBox = () => {
 
   const [text, setText] = useState("");
 
-  const onChangeText = (e) => setText(e.target.value);
+  const onChangeText = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setText(e.target.value);
 
   const history = useHistory();
 

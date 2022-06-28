@@ -6,7 +6,7 @@ import FooterComponents from "../organisms/FooterComponents";
 import HeaderComponents from "../organisms/HeaderComponents";
 
 const SearchMovie = () => {
-  const searchText = useSelector((state) => state.SearchTextReducer);
+  const searchText = useSelector((state: any) => state.SearchTextReducer);
 
   const requests = {
     feactMovies: `/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&page=1`,

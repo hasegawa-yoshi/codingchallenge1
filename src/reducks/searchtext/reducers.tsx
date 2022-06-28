@@ -7,7 +7,10 @@ import {
 } from "../store/initialState";
 import { combineReducers } from "redux";
 
-export const SearchTextReducer = (state = SearchTextInitialState, action) => {
+export const SearchTextReducer = (
+  state = SearchTextInitialState,
+  action: any
+) => {
   switch (action.type) {
     case Actions.SEARCH_TEXT:
       return {
@@ -19,7 +22,7 @@ export const SearchTextReducer = (state = SearchTextInitialState, action) => {
   }
 };
 
-export const MovieIdReducer = (state = movieIdInitialState, action) => {
+export const MovieIdReducer = (state = movieIdInitialState, action: any) => {
   switch (action.type) {
     case Actions.MOVIE_ID:
       return {
@@ -33,7 +36,7 @@ export const MovieIdReducer = (state = movieIdInitialState, action) => {
 
 export const FavoriteMovieReducer = (
   state = favoriteIdInitialState,
-  action
+  action: any
 ) => {
   switch (action.type) {
     case Actions.FAVORITE_MOVIE_ADD:
@@ -53,7 +56,7 @@ export const FavoriteMovieReducer = (
 
 export const FavoriteMovieIdReducer = (
   state = favoriteMovieIdInitialState,
-  action
+  action: any
 ) => {
   switch (action.type) {
     case Actions.FAVORITE_MOVIE_ID:

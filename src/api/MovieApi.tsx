@@ -5,7 +5,6 @@ import instance from "./axios";
 import { useHistory } from "react-router-dom";
 import IMG from "../gazonashi.jpeg";
 
-/*
 type Props = {
   fetchUrl: string;
   isLargeRow?: boolean;
@@ -18,12 +17,13 @@ type Movie = {
   original_name: string;
   poster_path: string;
   backdrop_path: string;
+  original_title: string;
 };
-*/
+
 const base_url = "https://image.tmdb.org/t/p/original";
 
-export const MovieApi = ({ fetchUrl } /*: Props*/) => {
-  const [movies, setMovies] = useState(/*<Movie[]>*/ []);
+export const MovieApi = ({ fetchUrl }: Props) => {
+  const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -36,13 +36,15 @@ export const MovieApi = ({ fetchUrl } /*: Props*/) => {
 
   console.log(movies);
 
-  const searchTextSelector = useSelector((state) => state.SearchTextReducer);
+  const searchTextSelector = useSelector(
+    (state: any) => state.SearchTextReducer
+  );
 
   const dispatch = useDispatch();
 
   const history = useHistory();
 
-  const onClickMovieImg = (x) => {
+  const onClickMovieImg = (x: any) => {
     dispatch({
       type: "MOVIE_ID",
       payload: {

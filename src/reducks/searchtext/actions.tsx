@@ -1,5 +1,5 @@
 export const SEARCH_TEXT = "SEARCH_TEXT";
-export const searchTextAction = (textState) => {
+export const searchTextAction = (textState: any) => {
   return {
     type: "SEARCH_TEXT",
     payload: {
@@ -9,7 +9,7 @@ export const searchTextAction = (textState) => {
 };
 
 export const MOVIE_ID = "MOVIE_ID";
-export const movieIdAction = (idState) => {
+export const movieIdAction = (idState: any) => {
   return {
     type: "MOVIE_ID",
     payload: {
@@ -19,7 +19,7 @@ export const movieIdAction = (idState) => {
 };
 
 export const FAVORITE_MOVIE_ADD = "FAVORITE_MOVIE_ADD";
-export const favorateMovieAddAction = (favoriteState) => {
+export const favorateMovieAddAction = (favoriteState: any) => {
   return {
     type: "FAVORITE_MOVIE_ADD",
     payload: {
@@ -30,7 +30,7 @@ export const favorateMovieAddAction = (favoriteState) => {
 };
 
 export const FAVORITE_MOVIE_DELETE = "FAVORITE_MOVIE_DELETE";
-export const favorateMovieDeleteAction = (favoriteState) => {
+export const favorateMovieDeleteAction = (favoriteState: any) => {
   return {
     type: "FAVORITE_MOVIE_DELETE",
     payload: {
@@ -41,7 +41,7 @@ export const favorateMovieDeleteAction = (favoriteState) => {
 };
 
 export const FAVORITE_MOVIE_ID = "FAVORITE_MOVIE_ID";
-export const favoriteMovieIdAction = (idState) => {
+export const favoriteMovieIdAction = (idState: any) => {
   return {
     type: "FAVORITE_MOVIE_ID",
     payload: {

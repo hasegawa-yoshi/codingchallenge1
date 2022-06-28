@@ -6,14 +6,36 @@ import instance from "../../api/axios";
 import FooterComponents from "../organisms/FooterComponents";
 import IMG from "../../gazonashi.jpeg";
 
-export const MovieIntro = () => {
-  const movieIdSelector = useSelector((state) => state.MovieIdReducer);
+type Movie = {
+  id: string;
+  name: string;
+  title: string;
+  original_name: string;
+  poster_path: string;
+  backdrop_path: string;
+  original_title: string;
+  overview: string;
+};
 
-  const movieintroUrl = `/movie/${movieIdSelector.id}?api_key=${API_KEY}&language=ja`;
+export const FavoriteMovieIntro = () => {
+  const favoriteMovieIdSelector = useSelector(
+    (state: any) => state.FavoriteMovieIdReducer
+  );
 
-  console.log(movieIdSelector.id);
+  const movieintroUrl = `/movie/${favoriteMovieIdSelector.favoriteid}?api_key=${API_KEY}&language=ja-JP`;
 
-  const [movie, setMovie] = useState([]);
+  console.log(favoriteMovieIdSelector.favoriteid);
+
+  const [movie, setMovie] = useState<Movie>({
+    id: "",
+    name: "",
+    title: "",
+    original_name: "",
+    poster_path: "",
+    backdrop_path: "",
+    original_title: "",
+    overview: "",
+  });
 
   useEffect(() => {
     async function fetchData() {
@@ -87,4 +109,4 @@ export const MovieIntro = () => {
   );
 };
 
-export default MovieIntro;
+export default FavoriteMovieIntro;

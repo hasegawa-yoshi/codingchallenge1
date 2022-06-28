@@ -1,21 +1,39 @@
 import { Button } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { API_KEY } from "../../api/Apikey";
 import instance from "../../api/axios";
 import FooterComponents from "../organisms/FooterComponents";
 import IMG from "../../gazonashi.jpeg";
 
-export const FavoriteMovieIntro = () => {
-  const favoriteMovieIdSelector = useSelector(
-    (state) => state.FavoriteMovieIdReducer
-  );
+type Movie = {
+  id: string;
+  name: string;
+  title: string;
+  original_name: string;
+  poster_path: string;
+  backdrop_path: string;
+  original_title: string;
+  overview: string;
+};
 
-  const movieintroUrl = `/movie/${favoriteMovieIdSelector.favoriteid}?api_key=${API_KEY}&language=ja`;
+export const MovieIntro = () => {
+  const movieIdSelector = useSelector((state: any) => state.MovieIdReducer);
 
-  console.log(favoriteMovieIdSelector.favoriteid);
+  const movieintroUrl = `/movie/${movieIdSelector.id}?api_key=${API_KEY}&language=ja-JP`;
 
-  const [movie, setMovie] = useState([]);
+  console.log(movieIdSelector.id);
+
+  const [movie, setMovie] = useState<Movie>({
+    id: "",
+    name: "",
+    title: "",
+    original_name: "",
+    poster_path: "",
+    backdrop_path: "",
+    original_title: "",
+    overview: "",
+  });
 
   useEffect(() => {
     async function fetchData() {
@@ -89,4 +107,4 @@ export const FavoriteMovieIntro = () => {
   );
 };
 
-export default FavoriteMovieIntro;
+export default MovieIntro;
