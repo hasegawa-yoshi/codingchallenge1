@@ -1,8 +1,8 @@
 import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import instance from "./axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import IMG from "../gazonashi.jpeg";
 
 type Props = {
@@ -36,9 +36,9 @@ export const MovieApi = ({ fetchUrl }: Props) => {
 
   console.log(movies);
 
-  const searchTextSelector = useSelector(
+  /*const searchTextSelector = useSelector(
     (state: any) => state.SearchTextReducer
-  );
+  );*/
 
   const dispatch = useDispatch();
 
@@ -54,9 +54,13 @@ export const MovieApi = ({ fetchUrl }: Props) => {
     history.push({ pathname: "/movieintro", search: movies[x].original_title });
   };
 
+  const presearch = useLocation().search;
+
+  const search = presearch.slice(1);
+
   return (
-    <div style={{ paddingTop: "70px" }}>
-      <h2>{searchTextSelector.text}の検索結果</h2>
+    <div style={{ paddingTop: "70px", paddingBottom: "30px" }}>
+      <h2>{search}の検索結果</h2>
       <h4>画像クリックで映画詳細を表示</h4>
       <Grid container alignItems="center" justifyContent="center">
         {" "}
